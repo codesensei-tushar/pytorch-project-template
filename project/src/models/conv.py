@@ -37,9 +37,9 @@ with open(config_path, "r") as file:
 #         return x
 
 class CNN(nn.Module):
-    def __init__(self, config):
+    def __init__(self, num_classes, config):
         super(CNN, self).__init__()
-        
+        self.config = config
         layers = []
         in_channels = config["model"]["input_channels"]  # Read input channels (e.g., 3 for RGB)
 

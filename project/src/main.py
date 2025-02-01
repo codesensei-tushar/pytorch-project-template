@@ -1,14 +1,23 @@
 import torch
+import yaml
 from utils.config import Config
 from data.dataset import get_dataloaders
 from models.conv import CNN
 from train import train_model
 
-def main():
-    config = Config()
+def load_config(config_path="project/src/utils/config.yml"):
+    with open(config_path, 'r') as file:
+        return yaml.safe_load(file)
     
-    # Initialize model
-    model = CNN(config.num_classes).to(config.device)
+def main():
+    abc = Config()
+    
+    # # Initialize model
+    # model = CNN(config.num_classes,config).to(config.device)
+    config = load_config('project/src/utils/config.yml')
+    
+    # Instantiate the model and move it to the configured device
+    model = CNN(config['model']['num_classes'], config).to(config['config']['device'])
     
     # Get data loaders
     train_loader, test_loader = get_dataloaders(config)

@@ -5,17 +5,17 @@ from tqdm import tqdm
 
 def train_model(model, train_loader, test_loader, config):
     criterion = nn.CrossEntropyLoss()
-    optimizer = optim.Adam(model.parameters(), lr=config.lr)
+    optimizer = optim.Adam(model.parameters(), lr=config['config']['lr'])
     
-    for epoch in range(config.epochs):
+    for epoch in range(config['config']['epochs']):
         # Training phase
         model.train()
         running_loss = 0.0
         correct = 0
         total = 0
         
-        for images, labels in tqdm(train_loader, desc=f"Epoch {epoch+1}/{config.epochs}"):
-            images, labels = images.to(config.device), labels.to(config.device)
+        for images, labels in tqdm(train_loader, desc=f"Epoch {epoch+1}/{config['config']['epochs']}"):
+            images, labels = images.to(config['config']['device']), labels.to(config['config']['device'])
             
             optimizer.zero_grad()
             outputs = model(images)
@@ -46,7 +46,7 @@ def evaluate(model, loader, criterion, config):
     
     with torch.no_grad():
         for images, labels in loader:
-            images, labels = images.to(config.device), labels.to(config.device)
+            images, labels = images.to(config['config']['device']), labels.to(config['config']['device'])
             outputs = model(images)
             loss = criterion(outputs, labels)
             
