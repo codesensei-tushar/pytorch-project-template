@@ -1,0 +1,23 @@
+model:
+  num_classes: 10  # Number of output classes (adjust based on your dataset)
+  input_channels: 3  # RGB images have 3 channels (change if grayscale images)
+  
+  # Convolutional layers configurations
+  conv_layers:
+    - filters: 32
+      kernel_size: 3
+      pool_size: 2  # Pooling size
+    - filters: 64
+      kernel_size: 3
+      pool_size: 2
+    - filters: 128
+      kernel_size: 3
+      pool_size: 2
+
+  # Fully connected layers
+  fc_layers:
+    - units: 512  # Units in the first fully connected layer
+  
+  # Optional: You can also add other parameters such as dropout, batch normalization, etc.
+  dropout: 0.5
+  batch_norm: true

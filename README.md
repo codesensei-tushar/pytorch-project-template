@@ -4,18 +4,25 @@ Check out the associated Medium Article: https://towardsdatascience.com/leveling
 ## Project Structure
 
 ```
-|-- project
-|   |-- __init__.py
-|   |-- config.py
-|   |-- datasets
-|   |   |-- __init__.py
-|   |   `-- dataset.py
-|   |-- experiment.py
-|   `-- models
-|       |-- __init__.py
-|       `-- conv.py
-|-- requirements.txt
-|-- README.md
-|-- config.yml
-`-- main.py
+project/
+|--data/
+├──| train/
+├──| test/
+├──| Training_csv/
+├──| Testing_csv/
+├──| src/
+│   ├── data/
+│   │   ├── __init__.py
+│   │   └── dataset.py
+│   ├── models/
+│   │   ├── __init__.py
+│   │   └── conv.py
+│   ├── utils/
+│   │   ├── __init__.py
+│   │   └── config.py
+        |  congig.yml
+│   ├── train.py
+│   └── main.py
+├── requirements.txt
+└── README.md
 ```
