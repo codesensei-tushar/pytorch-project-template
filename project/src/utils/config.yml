@@ -36,6 +36,6 @@ config:
 
   # Training parameters
   batch_size: 32
-  epochs: 10
+  epochs: 100
   lr: 0.001
   device: "cuda"
