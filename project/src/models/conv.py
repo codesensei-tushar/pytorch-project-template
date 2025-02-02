@@ -57,7 +57,7 @@ class CNN(nn.Module):
             nn.Flatten(),
             nn.Linear(128 * 17 * 17, config["model"]["fc_layers"][0]["units"]),
             nn.ReLU(inplace=True),
-            nn.Linear(config["model"]["fc_layers"][0]["units"], config["model"]["num_classes"])
+            nn.Linear(config["model"]["fc_layers"][0]["units"], config["config"]["num_classes"])
         )
 
     def forward(self, x):

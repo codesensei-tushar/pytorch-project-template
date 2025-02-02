@@ -18,7 +18,7 @@ def main():
     config = load_config('project/src/utils/config.yml')
     
     # Instantiate the model and move it to the configured device
-    model = CNN(config['model']['num_classes'], config).to(config['config']['device'])
+    model = CNN(config['config']['num_classes'], config).to(config['config']['device'])
     
     # Get data loaders
     module_name = config["dataloader"]["module"]
