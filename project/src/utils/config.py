@@ -1,5 +1,7 @@
 import torch
 
+
+
 class Config:
     # Data
     train_dir = "train/"
